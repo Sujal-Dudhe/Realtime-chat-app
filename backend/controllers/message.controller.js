@@ -1,5 +1,7 @@
 import Conversation from "../models/conversation.model.js";
 import Message from "../models/message.model.js";
+import { getReceiverSocketId, io } from "../socket/socket.js";
+
 
 export const sendMessage = async (req, res) => {
     try {
@@ -29,19 +31,18 @@ export const sendMessage = async (req, res) => {
             conversation.messages.push(newMessage._id)
         }
 
-        // SOCKET IO FUNCTIONALITY WILL GO HERE LATER
-
         // await conversation.save()
         // await newMessage.save()
 
         // This will run in parallel
         await Promise.all([conversation.save(), newMessage.save()])
-        
-        res.status(201).json({
-            success: true,
-            message: "Message sent successfully",
-            data: newMessage
-        });
+
+        // SOCKET IO FUNCTIONALITY WILL GO HERE LATER
+        const receiverSocketId = getReceiverSocketId(receiverId);
+        if (receiverSocketId) {
+            io.to(receiverSocketId).emit("newMessage", newMessage);
+        }
+        res.status(201).json(newMessage);
 
     } catch (error) {
         console.log("Error in sendMessage controller", error.message);
@@ -61,7 +62,7 @@ export const getMessages = async (req, res) => {
         }).populate("messages"); // Not reference but actual messages
 
         if (!conversation) {
-            return res.status(404).json({ error: "Conversation not found" });
+            return res.status(200).json([]);
         }
 
         const messages = conversation.messages;
