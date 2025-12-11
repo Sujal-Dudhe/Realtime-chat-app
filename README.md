@@ -1,6 +1,6 @@
 # Real-Time Chat App
 
-[![Live Demo](https://img.shields.io/badge/Demo-Live%20Demo-brightgreen)](https://your-deployed-app-link.com)
+[![Live Demo](https://img.shields.io/badge/Demo-Live%20Demo-brightgreen)](https://realtime-chat-app-cs5m.onrender.com)
 
 This is a full-stack MERN (MongoDB, Express, React, Node.js) application that allows users to chat in real-time. It features secure authentication, instant messaging powered by Socket.io, and a modern UI with online status indicators.
 
