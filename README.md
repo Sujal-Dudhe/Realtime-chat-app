@@ -2,8 +2,7 @@
 
 [![Live Demo](https://img.shields.io/badge/Demo-Live%20Demo-brightgreen)](https://realtime-chat-app-cs5m.onrender.com)
 
-This is a full-stack MERN (MongoDB, Express, React, Node.js) application that allows users to chat in real-time. It features secure authentication, instant messaging powered by Socket.io, and a modern UI with online status indicators.
-
+A full-stack real-time messaging application built with the **MERN** stack (MongoDB, Express.js, React, Node.js) and powered by **Socket.io** for instant communication. This application features a modern UI styled with **Tailwind CSS** and **DaisyUI**, focusing on performance, responsiveness, and a premium user experience.
 ## ![Homepage Preview](./frontend/public/preview.png)
 
 ## ✨ Features
@@ -42,11 +41,11 @@ This is a full-stack MERN (MongoDB, Express, React, Node.js) application that al
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/your-username/your-repo-name.git
+    git clone https://github.com/Sujal-Dudhe/Realtime-chat-app
     ```
 2.  **Navigate to the project directory:**
     ```bash
-    cd 03-RealTime-Chat-App
+    cd RealTime-Chat-App
     ```
 3.  **Install backend dependencies:**
     ```bash
@@ -59,8 +58,8 @@ This is a full-stack MERN (MongoDB, Express, React, Node.js) application that al
 5.  **Create a `.env` file** in the root directory and add your configuration:
     ```env
     PORT=5000
-    MONGO_DB_URI=<your_mongodb_uri>
-    JWT_SECRET=<your_jwt_secret>
+    MONGO_DB_URI=your_mongodb_uri
+    JWT_SECRET=your_jwt_secret
     NODE_ENV=development
     ```
 
