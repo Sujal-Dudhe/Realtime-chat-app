@@ -13,11 +13,18 @@ const Message = ({ message }) => {
 
 	const shakeClass = message.shouldShake ? "shake" : "";
 
+	const effectiveProfilePic = (!profilePic || profilePic.includes("avatar.iran.liara.run"))
+		? `https://api.dicebear.com/9.x/micah/svg?seed=${fromMe ? authUser.username : selectedConversation?.username}`
+		: profilePic;
+
 	return (
 		<div className={`chat ${chatClassName}`}>
 			<div className='chat-image avatar'>
 				<div className='w-10 rounded-full'>
-					<img alt='Tailwind CSS chat bubble component' src={profilePic} />
+					<img 
+						alt='Tailwind CSS chat bubble component' 
+						src={effectiveProfilePic} 
+					/>
 				</div>
 			</div>
 			<div className={`chat-bubble text-white ${bubbleBgColor} ${shakeClass} pb-2`}>{message.message}</div>
